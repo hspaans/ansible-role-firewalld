@@ -14,3 +14,29 @@
   tags:
     - configuration
     - policy
+
+- name: Enable firewalld services
+  firewalld:
+    service: "{{ item }}"
+    permanent: true
+    immediate: true
+    state: enabled
+  with_items:
+    - "{{ firewalld_services_enabled }}"
+  tags:
+    - configuration
+    - firewall
+    - policy
+
+- name: Disable firewalld services
+  firewalld:
+    service: "{{ item }}"
+    permanent: true
+    immediate: true
+    state: disabled
+  with_items:
+    - "{{ firewalld_services_enabled }}"
+  tags:
+    - configuration
+    - firewall
+    - policy
