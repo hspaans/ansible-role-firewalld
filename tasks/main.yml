@@ -1,7 +1,7 @@
 ---
 - name: Install required packages for firewalld
   package:
-    name: "{{ firewalls_packages }}"
+    name: "{{ firewalld_packages }}"
     state: present
   tags:
     - packages
