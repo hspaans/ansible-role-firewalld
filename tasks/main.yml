@@ -1,4 +1,11 @@
 ---
+- name: Install required packages for firewalld
+  package:
+    name: "{{ firewalls_required_packages }}"
+    state: present
+  tags:
+    - packages
+
 - name: Configure firewalld service
   service:
     name: "{{ firewalld_service_name }}"
