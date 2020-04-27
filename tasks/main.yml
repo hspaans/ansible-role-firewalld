@@ -1,2 +1,9 @@
 ---
-# tasks file for firewalld
+- name: Configure firewalld service
+  service:
+    name: "{{ firewalld_service_name }}"
+    state: "{{ firewalld_service_state }}"
+    enabled: "{{ firewalld_service_enabled }}"
+  tags:
+    - configuration
+    - policy

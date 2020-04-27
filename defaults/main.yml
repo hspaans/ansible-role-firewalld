@@ -1,2 +1,4 @@
 ---
-# defaults file for firewalld
+firewalld_service_enabled: true
+firewalld_service_name: 'firewalld'
+firewalld_service_state: 'started'
