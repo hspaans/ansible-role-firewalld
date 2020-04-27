@@ -35,7 +35,7 @@
     immediate: true
     state: disabled
   with_items:
-    - "{{ firewalld_services_enabled }}"
+    - "{{ firewalld_services_disabled }}"
   tags:
     - configuration
     - firewall
