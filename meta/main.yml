@@ -2,7 +2,7 @@
 galaxy_info:
   role_name: firewalld
   author: Hans Spaans
-  description: Firewalld
+  description: Install firewalld and maintain firewall rulesets
 
   license: MIT
 
@@ -13,6 +13,8 @@ galaxy_info:
       versions:
         - 7
 
-  galaxy_tags: []
+  galaxy_tags:
+    - firewall
+    - system
 
 dependencies: []
