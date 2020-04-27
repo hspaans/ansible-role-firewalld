@@ -6,3 +6,5 @@ firewalld_packages:
   - firewalld
 firewalld_services_disable: []
 firewalld_services_enable: []
+firewalld_rich_rule_add: []
+firewalld_rich_rule_delete: []

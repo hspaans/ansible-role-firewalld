@@ -28,6 +28,34 @@
     - firewall
     - policy
 
+- name: Adding Rich Rules
+  firewalld:
+    rich_rule: "rule family={{ item.family }} source address={{ item.address }} port port={{ item.port }} protocol={{ item.protocol }} {{ item.action }}}"
+    zone: "{{ item.zone }}"
+    permanent: true
+    immediate: true
+    state: enabled
+  with_items:
+    - "{{ firewalld_rich_rule_add }}"
+  tags:
+    - configuration
+    - firewall
+    - policy
+
+- name: Removing Rich Rules
+  firewalld:
+    rich_rule: "rule family={{ item.family }} source address={{ item.address }} port port={{ item.port }} protocol={{ item.protocol }} {{ item.action }}"
+    zone: "{{ item.zone }}"
+    permanent: true
+    immediate: true
+    state: disabled
+  with_items:
+    - "{{ firewalld_rich_rule_delete }}"
+  tags:
+    - configuration
+    - firewall
+    - policy
+
 - name: Disable firewalld services
   firewalld:
     service: "{{ item }}"
