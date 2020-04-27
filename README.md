@@ -11,7 +11,7 @@ None as the firewalld package is being installed.
 Role Variables
 --------------
 
-Default variables are set in `defaults/main.yml` to match the WP-CLI and role version.
+Default variables are set in `defaults/main.yml`.
 
 Dependencies
 ------------
@@ -37,7 +37,7 @@ Example Playbook
             protocol: tcp
             action: accept
       roles:
-         - { role: hspaans.hspaans, become: true }
+         - { role: hspaans.firewalld, become: true }
 
 License
 -------
