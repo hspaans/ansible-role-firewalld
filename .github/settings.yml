@@ -1,0 +1,6 @@
+---
+repository:
+  description: Ansible Role for firewalld
+  topics: ansible-role, ansible-galaxy, firewalld, debian, redhat, centos, fedora, firewalld-configuration
+  delete_branch_on_merge: true
+  has_wiki: false
