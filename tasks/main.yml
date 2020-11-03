@@ -16,7 +16,7 @@
     - policy
 
 - name: Enable firewalld services
-  firewalld:
+  ansible.posix.firewalld:
     service: "{{ item }}"
     permanent: true
     immediate: true
@@ -29,7 +29,7 @@
     - policy
 
 - name: Adding Rich Rules
-  firewalld:
+  ansible.posix.firewalld:
     rich_rule: "rule family={{ item.family }} source address={{ item.address }} port port={{ item.port }} protocol={{ item.protocol }} {{ item.action }}}"
     zone: "{{ item.zone }}"
     permanent: true
@@ -43,7 +43,7 @@
     - policy
 
 - name: Removing Rich Rules
-  firewalld:
+  ansible.posix.firewalld:
     rich_rule: "rule family={{ item.family }} source address={{ item.address }} port port={{ item.port }} protocol={{ item.protocol }} {{ item.action }}"
     zone: "{{ item.zone }}"
     permanent: true
@@ -57,7 +57,7 @@
     - policy
 
 - name: Disable firewalld services
-  firewalld:
+  ansible.posix.firewalld:
     service: "{{ item }}"
     permanent: true
     immediate: true

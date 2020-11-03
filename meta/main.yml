@@ -6,12 +6,18 @@ galaxy_info:
 
   license: MIT
 
-  min_ansible_version: 2.9
+  min_ansible_version: 2.10
 
   platforms:
     - name: EL
       versions:
         - 7
+    - name: Debian
+      versions:
+        - buster
+    - name: Ubuntu
+      versions:
+        - focal
 
   galaxy_tags:
     - firewall
