@@ -1,0 +1,61 @@
+---
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+
+jobs:
+
+  lint:
+    name: Lint Code Base
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Lint Code Base
+        uses: github/super-linter@v3.15.3
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ANSIBLE_DIRECTORY: /
+          VALIDATE_ANSIBLE: false
+
+  molecule:
+    needs: lint
+    name: Molecule
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        ansible:
+          - "ansible-base==2.10.*"
+        distro:
+          - centos7
+          - centos8
+          - debian9
+          - debian10
+          - ubuntu1804
+          - ubuntu2004
+
+    steps:
+      - name: Check out the codebase
+        uses: actions/checkout@v2
+
+      - name: Set up Python 3
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.x"
+
+      - name: Install test dependencies
+        run: |
+          pip3 install ${{ matrix.ansible }}
+          pip3 install -r requirements.txt
+
+      - name: Run Molecule tests
+        run: molecule test -s ${{ matrix.distro }}
+        env:
+          PY_COLORS: "1"
+          ANSIBLE_FORCE_COLOR: "1"
