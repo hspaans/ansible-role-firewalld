@@ -4,18 +4,18 @@
 
   pre_tasks:
     - name: Update apt cache (on Debian).
-      apt:
+      ansible.builtin.apt:
         update_cache: true
         cache_valid_time: 3600
       when: ansible_os_family == 'Debian'
 
     - name: Update yum cache (on Redhat).
-      yum:
+      ansible.builtin.yum:
         update_cache: true
       when: ansible_os_family == 'RedHat'
 
   tasks:
     - name: Remove packages
-      package:
+      ansible.builtin.package:
         name: firewalld
         state: absent

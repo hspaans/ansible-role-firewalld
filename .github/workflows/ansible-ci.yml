@@ -3,6 +3,8 @@ name: CI
 
 on:
   pull_request:
+  schedule:
+    - cron: "14 3 2 * *"
 
 jobs:
 
