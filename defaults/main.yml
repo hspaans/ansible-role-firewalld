@@ -1,7 +1,7 @@
 ---
 firewalld_service_enabled: true
-firewalld_service_name: 'firewalld'
-firewalld_service_state: 'started'
+firewalld_service_name: firewalld.service
+firewalld_service_state: started
 firewalld_packages:
   - firewalld
 firewalld_services_disable: []
