@@ -30,7 +30,7 @@
 
 - name: Adding Rich Rules
   ansible.posix.firewalld:
-    rich_rule: "rule family={{ item.family }} source address={{ item.address }} port port={{ item.port }} protocol={{ item.protocol }} {{ item.action }}}"
+    rich_rule: "rule family={{ item.family }} source address={{ item.address }} port port={{ item.port }} protocol={{ item.protocol }} {{ item.action }}"
     zone: "{{ item.zone }}"
     permanent: true
     immediate: true
