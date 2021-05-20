@@ -1,50 +1,46 @@
-Role Name
-=========
+# Role Name
 
 Install and configure firewalld
 
-Requirements
-------------
+## Requirements
 
 None as the firewalld package is being installed.
 
-Role Variables
---------------
+## Role Variables
 
 Default variables are set in `defaults/main.yml`.
 
-Dependencies
-------------
+## Dependencies
 
 No dependency on other Ansible Galaxy roles.
 
-Example Playbook
-----------------
+## Example Playbook
 
-    - hosts: servers
-      vars:
-        firewalld_services_enable:
-          - https
-          - ssh
-        firewalld_services_disable:
-          - ftp
-          - http
-        firewalld_rich_rule_add:
-          - zone: public
-            family: ipv4
-            address: 192.0.2.0/24
-            port: 22
-            protocol: tcp
-            action: accept
-      roles:
-         - { role: hspaans.firewalld, become: true }
+```yaml
+---
+- hosts: servers
+  vars:
+    firewalld_services_enable:
+      - https
+      - ssh
+    firewalld_services_disable:
+      - ftp
+      - http
+    firewalld_rich_rule_add:
+      - zone: public
+        family: ipv4
+        address: 192.0.2.0/24
+        port: 22
+        protocol: tcp
+        action: accept
+  roles:
+      - { role: hspaans.firewalld, become: true }
+```
 
-License
--------
+## License
 
 MIT
 
-Author Information
-------------------
+## Author Information
 
 This role was created in 2020 by [Hans Spaans](https://github.com/hspaans).
