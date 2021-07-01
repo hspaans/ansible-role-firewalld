@@ -16,9 +16,6 @@ name: Lint Code Base
 #############################
 on:
   pull_request:
-  push:
-    branches:
-      - master
 
 ###############
 # Set the Job #
@@ -44,7 +41,6 @@ jobs:
       # Run Linter against code base #
       ################################
       - name: Lint Code Base
-        uses: github/super-linter@v4.0.2
+        uses: github/super-linter@v4.2.2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ANSIBLE_DIRECTORY: /
