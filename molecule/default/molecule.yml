@@ -23,13 +23,6 @@ platforms:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
     privileged: true
     pre_build_image: true
-  - name: debian-10
-    image: "ghcr.io/hspaans/molecule-container-debian:10"
-    command: ""
-    volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro
-    privileged: true
-    pre_build_image: true
   - name: debian-11
     image: "ghcr.io/hspaans/molecule-container-debian:11"
     command: ""
