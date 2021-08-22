@@ -1,13 +1,13 @@
 ---
 - name: Install required packages for firewalld
-  package:
+  ansible.builtin.package:
     name: "{{ firewalld_packages }}"
     state: present
   tags:
     - packages
 
-- name: Configure firewalld service
-  service:
+- name: Enable and start firewalld service
+  ansible.builtin.systemd:
     name: "{{ firewalld_service_name }}"
     state: "{{ firewalld_service_state }}"
     enabled: "{{ firewalld_service_enabled }}"
