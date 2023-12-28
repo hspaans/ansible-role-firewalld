@@ -8,8 +8,6 @@ on:
   push:
     branches:
       - master
-  schedule:
-    - cron: '30 5 20 * *'
 
 jobs:
   ansible-role-ci:
